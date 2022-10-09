@@ -1,12 +1,12 @@
 <#
 .NOTES
-   Author      : Chris Titus @christitustech
-   GitHub      : https://github.com/ChrisTitusTech
-    Version 0.0.1
+   Author      : Matt Murtagh @targh86
+   GitHub      : https://github.com/targh86
+    Version 0.1.2
 #>
 
 #$inputXML = Get-Content "MainWindow.xaml" #uncomment for development
-$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/MainWindow.xaml") #uncomment for Production
+$inputXML = (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/targh86/wsetupcfgutil/main/MainWindow.xaml") #uncomment for Production
 
 $inputXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace '^<Win.*', '<Window'
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
@@ -37,26 +37,33 @@ Function Get-FormVariables {
     If ($global:ReadmeDisplay -ne $true) { Write-host "If you need to reference this display again, run Get-FormVariables" -ForegroundColor Yellow; $global:ReadmeDisplay = $true }
     
 
-    write-host ""                                                                                                                             
-    write-host "    CCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT   "
-    write-host " CCC::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T   "
-    write-host "CC:::::::::::::::CT:::::::::::::::::::::TT:::::::::::::::::::::T  "
-    write-host "C:::::CCCCCCCC::::CT:::::TT:::::::TT:::::TT:::::TT:::::::TT:::::T "
-    write-host "C:::::C       CCCCCCTTTTTT  T:::::T  TTTTTTTTTTTT  T:::::T  TTTTTT"
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C                     T:::::T                T:::::T        "
-    write-host "C:::::C       CCCCCC        T:::::T                T:::::T        "
-    write-host "C:::::CCCCCCCC::::C      TT:::::::TT            TT:::::::TT       "
-    write-host "CC:::::::::::::::C       T:::::::::T            T:::::::::T       "
-    write-host "CCC::::::::::::C         T:::::::::T            T:::::::::T       "
-    write-host "  CCCCCCCCCCCCC          TTTTTTTTTTT            TTTTTTTTTTT       "
     write-host ""
-    write-host "====Chris Titus Tech====="
-    write-host "=====Windows Toolbox====="
+    write-host "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    write-host "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    write-host "@@                         @                         @                         @"
+    write-host "@@                           @@                   @@ @                         @"
+    write-host "@@                              @               @    @                         @"
+    write-host "@@                                @@         @@      @                         @"
+    write-host "@@                         @@@       @     @         @                         @"
+    write-host "@@                         @   @       @@            @                         @"
+    write-host "@@                         @     @@       @          @                         @"
+    write-host "@@                         @        @       @@       @                         @"
+    write-host "@@                         @                   @                               @"
+    write-host "@@                         @                     @@                            @"
+    write-host "@@                         @                        @                          @"
+    write-host "@@                                                                             @"
+    write-host "@@                                                                             @"
+    write-host "@@                                                                             @"
+    write-host "@@          M A T T   M U R T A G H   D I G I T A L   &   D E S I G N          @"
+    write-host "@@                                                                             @"
+    write-host "@@                           T A R G H . O N L I N E                           @"
+    write-host "@@                                                                             @"
+    write-host "@@                                                                             @"
+    write-host "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    write-host "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    write-host ""
+    write-host "             ======== Targh Online =========         "
+    write-host "     ===== Windows Setup & Config Util Toolbox ===== "
                            
  
     #====DEBUG GUI Elements====
@@ -70,7 +77,7 @@ Get-FormVariables
 #===========================================================================
 # Global Variables
 #===========================================================================
-$AppTitle = "Chris Titus Tech's Windows Utility"
+$AppTitle = "Windows Setup & Config Util Toolbox | Targh Online"
 
 
 #===========================================================================
@@ -1107,7 +1114,7 @@ $WPFtweaksbutton.Add_Click({
         }
         If ( $WPFEssTweaksRemoveEdge.IsChecked -eq $true ) {
             Write-Host "Removing Microsoft Edge..."
-            Invoke-WebRequest -useb https://raw.githubusercontent.com/ChrisTitusTech/winutil/main/Edge_Removal.bat | Invoke-Expression
+            Invoke-WebRequest -useb https://raw.githubusercontent.com/targh86/wsetupcfgutil/main/Edge_Removal.bat | Invoke-Expression
             $WPFEssTweaksRemoveEdge.IsChecked = $false
         }
         If ( $WPFEssTweaksDeBloat.IsChecked -eq $true ) {
